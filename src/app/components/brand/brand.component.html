@@ -1,7 +1,13 @@
 
 <table class="table">
-<tr *ngFor="let brand pf brands">
-  <td>{{brand.brandId}}</td>
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Marka Adı</th>
+    </tr>
+  </thead>
+<tr *ngFor="let brand of brands">
+  <td>{{brand.brandID}}</td>
   <td>{{brand.brandName}}</td>
 </tr>
 </table>
