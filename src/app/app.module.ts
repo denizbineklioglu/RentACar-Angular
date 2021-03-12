@@ -7,7 +7,6 @@ import { BrandComponent } from './components/brand/brand.component';
 import { ColorComponent } from './components/color/color.component';
 import { CustomerComponent } from './components/customer/customer.component';
 import { RentalComponent } from './components/rental/rental.component';
-import { CarImageComponent } from './components/car-image/car-image.component';
 import { NavComponent } from './components/nav/nav.component';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -19,7 +18,6 @@ import { HttpClientModule } from '@angular/common/http';
     ColorComponent,
     CustomerComponent,
     RentalComponent,
-    CarImageComponent,
     NavComponent
   ],
   imports: [
