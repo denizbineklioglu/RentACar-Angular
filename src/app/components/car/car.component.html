@@ -1,18 +1,22 @@
 <table class="table">
-   <thead>
-       <tr>
-           <th>Id</th>
-           <th>Adı</th>
-           <th>Marka</th>
-           <th>Renk</th>
-           <th>Fiyat</th>
-       </tr>
-   </thead>
-   <tr *ngFor="let car of cars">
-      <td>{{car.carId}}</td>
-      <td>{{car.carName}}</td>
-      <td>{{car.brandName}}</td>
-      <td>{{car.colorName}}</td>
-      <td>{{car.dailyPrice}}</td>
-   </tr>
-</table>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Marka</th>
+            <th>Renk</th>
+            <th>Adı</th>
+            <th>Yıl</th>
+            <th>Fiyat</th>
+            <th>Açıklama</th>
+        </tr>
+    </thead>
+    <tr *ngFor="let car of cars">
+       <td>{{car.carID}}</td>
+       <td>{{car.brandID}}</td>
+       <td>{{car.colorID}}</td>
+       <td>{{car.carName}}</td>
+       <td>{{car.modelYear}}</td>
+       <td>{{car.dailyPrice}}</td>
+       <td>{{car.description}}</td>
+    </tr>
+ </table>
