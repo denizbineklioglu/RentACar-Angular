@@ -1,22 +1,38 @@
-<table class="table">
-    <thead>
-        <tr>
-            <th>Id</th>
-            <th>Marka</th>
-            <th>Renk</th>
-            <th>Adı</th>
-            <th>Yıl</th>
-            <th>Fiyat</th>
-            <th>Açıklama</th>
-        </tr>
-    </thead>
-    <tr *ngFor="let car of cars">
-       <td>{{car.carID}}</td>
-       <td>{{car.brandID}}</td>
-       <td>{{car.colorID}}</td>
-       <td>{{car.carName}}</td>
-       <td>{{car.modelYear}}</td>
-       <td>{{car.dailyPrice}}</td>
-       <td>{{car.description}}</td>
-    </tr>
- </table>
+
+<h4>ARAÇLAR</h4>
+<div>
+</div>
+<div class="row" >
+  <div *ngFor="let car of cars" class="table" style="width: 20rem;">
+    <img src="https://localhost:44350/uploads/{{car.imagePath}}" 
+    class="card-img-top" routerLink="/cars" alt="{{car.description}} Image" width="auto" height="auto">
+    <div  class="card-body">
+    </div >
+    <ul class="list-group">
+      <li class="list-group-item">Marka: {{car.brandName}}</li>
+      <li class="list-group-item">Renk: {{car.colorName}}</li>
+      <li class="list-group-item">Model Yılı: {{car.modelYear}}</li>
+      <li class="list-group-item">Fiyat: {{car.dailyPrice}} Türk Lirası</li>
+      <button routerLink="cars/getcardetail/{{car.carID}}" type="button" class="btn btn-primary">Detaylar</button>
+    </ul>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

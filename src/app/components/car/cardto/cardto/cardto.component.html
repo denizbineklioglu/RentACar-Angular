@@ -1,0 +1,14 @@
+<div class="carousel-inner">
+    <div *ngFor="let car of cars" class="carousel-item active" data-bs-interval="10000">
+      <img src="{{car.imagePath}}" class="d-block w-100" alt="{{car.description}} Image">
+      <div class="carousel-caption d-none d-md-block">
+      </div>
+    </div>
+    <div>
+        <ul *ngFor="let car of cars" class="list-group list-group-flush">
+          <li class="list-group-item">Marka: {{car.brandName}}</li>
+          <li class="list-group-item">Renk: {{car.colorName}}</li>
+          <li class="list-group-item">Model Yılı: {{car.modelYear}}</li>
+          <li class="list-group-item">Fiyat: {{car.dailyPrice}} Türk Lirası</li>
+        </ul>
+      </div>
