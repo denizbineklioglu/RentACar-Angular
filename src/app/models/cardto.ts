@@ -4,4 +4,6 @@ export interface Cardto{
     brandName:string
     colorName:string
     dailyPrice:number
+    modelYear:number
+    imagePath:string
 }

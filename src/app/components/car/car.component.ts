@@ -12,6 +12,7 @@ import { CarService } from 'src/app/services/car.service';
 export class CarComponent implements OnInit {
 
   cars:Car[]=[]
+  currentCar:Car
   constructor(private carService:CarService,private activatedRoute:ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -20,7 +21,7 @@ export class CarComponent implements OnInit {
         this.getcarsbybrand(params["brandID"])
       } else if (params["colorID"]){
          this.getcarsbycolor(params["colorID"])
-      } else {
+      }else{
         this.getcars()
       }
     })
@@ -34,14 +35,6 @@ export class CarComponent implements OnInit {
     })
   }
 
-  getcardetails(){
-    this.carService
-    .getcardetail()
-    .subscribe(response => {
-       this.cars = response.data
-    })
-  }
-
   getcarsbybrand(brandID:number){
     this.carService.getcarsbybrands(brandID).subscribe(response =>{
       this.cars= response.data
@@ -52,5 +45,17 @@ export class CarComponent implements OnInit {
     this.carService.getcarsbycolors(colorID).subscribe(response => {
       this.cars = response.data
     })
+  }
+
+  setCurrentCar(car:Car){
+     this.currentCar= car
+  }
+
+  getCurrentCar(car:Car){
+    if(this.currentCar = car){
+      return "list-group-item active"
+    } else {
+      return "list-group-item"
+    }
   }
 }
