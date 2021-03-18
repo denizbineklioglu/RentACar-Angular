@@ -1,19 +1,19 @@
-
-<h4>ARAÇLAR</h4>
-<div>
+<div class="mb-3">
+  <label for="araçAra" class="form-label"></label>
+  <input type="text" [(ngModel)]="filterText" class="form-control" id="araçAra" placeholder="araç ara">
 </div>
-<div class="row" >
-  <div *ngFor="let car of cars" class="table" style="width: 20rem;">
-    <img src="https://localhost:44350/uploads/{{car.imagePath}}" 
-    class="card-img-top" routerLink="/cars" alt="{{car.description}} Image" width="auto" height="auto">
-    <div  class="card-body">
-    </div >
+<div *ngIf=(filterText) class="alert alert-primary">
+{{filterText}} aradınız.
+</div>
+ 
+<div class="row">
+  <div *ngFor="let car of cars | filterCar:filterText" class="table" style="width: 23rem;">
+    <img src="{{imageBasePath}}{{car.imagePath}}" class="card-img-top" width="320" height="200" alt={{car.description}}>
     <ul class="list-group">
-      <li class="list-group-item">Marka: {{car.brandName}}</li>
-      <li class="list-group-item">Renk: {{car.colorName}}</li>
-      <li class="list-group-item">Model Yılı: {{car.modelYear}}</li>
-      <li class="list-group-item">Fiyat: {{car.dailyPrice}} Türk Lirası</li>
+      <li class="list-group-item">Adı: {{car.carName}}</li>
+      <li class="list-group-item">Fiyat: {{car.dailyPrice | currency}}</li>
       <button routerLink="cars/getcardetail/{{car.carID}}" type="button" class="btn btn-primary">Detaylar</button>
+      <button routerLink="cars/getcardetail/{{car.carID}}" type="button" class="btn btn-success">Kirala</button>
     </ul>
     </div>
   </div>
