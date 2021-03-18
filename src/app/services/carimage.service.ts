@@ -14,7 +14,7 @@ export class CarimageService {
   constructor(private httpClient:HttpClient) { }
 
   getcarImages(carId:number):Observable<ListedResponseModel<CarImage>>{
-      let newPath = this.apiUrl + "carimages/getcarimage?id" + carId 
+      let newPath = this.apiUrl + "carimages/getcarimage?id=" + carId 
       return this.httpClient.get<ListedResponseModel<CarImage>>(newPath)
   }
 }

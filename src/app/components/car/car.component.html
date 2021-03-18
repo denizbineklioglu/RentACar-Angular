@@ -5,10 +5,18 @@
 <div *ngIf=(filterText) class="alert alert-primary">
 {{filterText}} aradınız.
 </div>
- 
+
+<label for="cars">Markayı seç:</label>
+<select name="cars" id="cars">
+  <option value="volvo">Volvo</option>
+  <option value="saab">Saab</option>
+  <option value="mercedes">Mercedes</option>
+  <option value="audi">Audi</option>
+</select>
+
 <div class="row">
   <div *ngFor="let car of cars | filterCar:filterText" class="table" style="width: 23rem;">
-    <img src="{{imageBasePath}}{{car.imagePath}}" class="card-img-top" width="320" height="200" alt={{car.description}}>
+    <img src="{{imageBasePath}}{{car.imagePath}}" class="card-img-top" width="320" height="200">
     <ul class="list-group">
       <li class="list-group-item">Adı: {{car.carName}}</li>
       <li class="list-group-item">Fiyat: {{car.dailyPrice | currency}}</li>
@@ -16,7 +24,7 @@
       <button routerLink="cars/getcardetail/{{car.carID}}" type="button" class="btn btn-success">Kirala</button>
     </ul>
     </div>
-  </div>
+</div>
 
 
 
