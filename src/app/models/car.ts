@@ -8,3 +8,4 @@ export interface Car{
     description:string
     imagePath:string
 }
+

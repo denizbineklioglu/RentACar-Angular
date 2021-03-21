@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Car } from 'src/app/models/car';
+import { CarDetail } from 'src/app/models/carDetail';
 import { CarService } from 'src/app/services/car.service';
+import { CardtoService } from 'src/app/services/cardto.service';
+import { environment } from 'src/environments/environment';
 
 
 @Component({
@@ -11,8 +14,10 @@ import { CarService } from 'src/app/services/car.service';
 })
 export class CardtoComponent implements OnInit {
 
-  cars:Car[]=[]
-  constructor(private carService:CarService,private activatedRoute:ActivatedRoute) { }
+  car:Car
+  imageBasePath=environment.baseUrl
+  
+  constructor(private cardtoService:CardtoService,private activatedRoute:ActivatedRoute) { }
   ngOnInit(): void {
    this.activatedRoute.params.subscribe(params => {
      if(params ["carID"]){
@@ -22,8 +27,8 @@ export class CardtoComponent implements OnInit {
   }
   
   getcardetail(carId:number){
-    this.carService.getcardetail(carId).subscribe(response => {
-      this.cars = response.data
+    this.cardtoService.getcardetail(carId).subscribe(response => {
+      this.car = response.data[0]
     })
   }
 

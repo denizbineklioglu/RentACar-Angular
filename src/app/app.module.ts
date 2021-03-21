@@ -14,6 +14,7 @@ import { FilterBrandPipe } from './pipes/filter-brand.pipe';
 import {FormsModule} from '@angular/forms';
 import { FilterColorPipe } from './pipes/filter-color.pipe';
 import { FilterCarPipe } from './pipes/filter-car.pipe';
+import { CarFilterComponent } from './components/car-filter/car-filter.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { FilterCarPipe } from './pipes/filter-car.pipe';
     CardtoComponent,
     FilterBrandPipe,
     FilterColorPipe,
-    FilterCarPipe
+    FilterCarPipe,
+    CarFilterComponent,
   ],
   imports: [
     HttpClientModule,

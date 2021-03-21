@@ -1,0 +1,16 @@
+<div class="row mb-2">
+<div class="col col-4">
+    <label for="brands">Marka Seçiniz:</label>
+    <select [(ngModel)]="brandFilter" class="form-select" aria-label="Default select example" id="brands">
+        <option *ngFor="let brand of brands"  [value]="brand.brandID" selected="{{getSelectedColor(brand.brandID)}}">{{brand.brandName}}</option>
+      </select>
+  </div>
+  <div class="col col-4">
+    <label for="colors">Renk Seçiniz:</label>
+  <select  [(ngModel)]="colorFilter" class="form-select" aria-label="Default select example" id="colors">
+    <option *ngFor="let color of colors"  [value]="color.colorID" selected="{{getSelectedColor(color.colorID)}}">{{color.colorName}}</option>
+  </select>
+  </div>
+  <div *ngIf="(brandFilter && colorFilter)" class="col-mb-2"> 
+   <button routerLink="/cars/filter/{{brandFilter}}/{{colorFilter}}" type="button" class="btn btn-secondary">Filtrele</button>
+  </div>

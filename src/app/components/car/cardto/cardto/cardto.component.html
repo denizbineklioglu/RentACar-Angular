@@ -1,14 +1,31 @@
-<div class="carousel-inner">
-    <div *ngFor="let car of cars" class="carousel-item active" data-bs-interval="10000">
-     
-      <div class="carousel-caption d-none d-md-block">
-      </div>
-    </div>
-    <div>
-        <ul *ngFor="let car of cars" class="list-group list-group-flush">
-          <li class="list-group-item">Marka: {{car.brandName}}</li>
-          <li class="list-group-item">Renk: {{car.colorName}}</li>
-          <li class="list-group-item">Model Yılı: {{car.modelYear}}</li>
-          <li class="list-group-item">Fiyat: {{car.dailyPrice}} Türk Lirası</li>
-        </ul>
+<div class="car-header">
+  Araba Detayları
+</div>
+    <div *ngIf="car" class="mt-4" >
+      <img src="{{imageBasePath}}{{car.imagePath}}" class="card-img-top" width="500" height="400">
+          <table class="table table-bordered"></table>
+          <tr>
+            <th>Adı: </th>
+            <td>{{car.carName}}</td>
+          </tr>
+          <tr>
+            <th>Marka: </th>
+            <td>{{car.brandName}}</td>
+          </tr>
+          <tr>
+            <th>Renk: </th>
+            <td>{{car.colorName}}</td>
+          </tr>
+          <tr>
+            <th>Fiyatı: </th>
+            <td>{{car.dailyPrice | currency}}</td>
+          </tr>
+          <tr>
+            <th>Model Yılı: </th>
+            <td>{{car.modelYear}}</td>
+          </tr>
+          <tr>
+            <th>Açıklama: </th>
+            <td>{{car.description}}</td>
+          </tr>
       </div>
