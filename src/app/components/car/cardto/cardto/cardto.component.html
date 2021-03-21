@@ -2,7 +2,7 @@
   Araba Detayları
 </div>
     <div *ngIf="car" class="mt-4" >
-      <img src="{{imageBasePath}}{{car.imagePath}}" class="card-img-top" width="500" height="400">
+      <img src="{{imageBasePath}}{{car.imagePath}}" class="card-img-top" width="400" height="400">
           <table class="table table-bordered"></table>
           <tr>
             <th>Adı: </th>
@@ -29,3 +29,4 @@
             <td>{{car.description}}</td>
           </tr>
       </div>
+      <button type="button" class="btn btn-success">Kirala</button>
