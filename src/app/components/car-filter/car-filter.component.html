@@ -12,6 +12,11 @@
       <option *ngFor="let color of colors"  [value]="color.colorID" selected="{{getSelectedColor(color.colorID)}}">{{color.colorName}}</option>
     </select>
     </div>
-    <div class="col-mb-2"> 
-     <button type="button" class="btn btn-secondary">Filtrele</button>
+    <div class="mb-2"> 
+     <button routerLink="cars/filtercar/{{brandFilter}}/{{colorFilter}}" type="button" class="btn btn-secondary">Filtrele</button>
     </div>
+    <div class="mb-2">
+      <a 
+      routerLink="" class="btn btn-danger">Temizle</a>
+  </div>
+</div>

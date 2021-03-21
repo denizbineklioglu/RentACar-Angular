@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NumberValueAccessor } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Brand } from 'src/app/models/brand';
 import { Car } from 'src/app/models/car';
@@ -73,4 +74,6 @@ export class CarComponent implements OnInit {
       return "carousel-item"
     }
   }
+
+  
 }
