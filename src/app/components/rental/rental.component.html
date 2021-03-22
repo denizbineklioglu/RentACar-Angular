@@ -1,16 +1,66 @@
-<table class="table">
-    <thead>
-        <tr>
-            <th>Id</th>
-            <th>Marka</th>
-            <th>Adı</th>
-            <th>Soyadı</th>
-        </tr>
-    </thead>
-  <tr *ngFor="let rental of rentals">
-    <td>{{rental.rentalId}}</td>
-    <td>{{rental.brandName}}</td>
-    <td>{{rental.firstName}}</td>
-    <td>{{rental.lastName}}</td>
-  </tr>
-</table>
+<div class="content">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header"><h5 class="title">Araba Kirala</h5></div>
+            <div class="card-body">
+            <form [formGroup]="rentalAddForm">
+                <div class="mb-3">
+                    <label for="marka">Marka</label>
+                    <div class="form-group">
+                        <input type="text" 
+                        id="marka" 
+                        formControlName="marka" class="form-control" 
+                        placeholder="marka"/>
+                    </div>
+                    </div>
+                <div class="mb-3">
+                    <label for="renk">Renk</label>
+                    <div class="form-group">
+                        <input type="text" 
+                        id="renk" 
+                        formControlName="renk" class="form-control" 
+                        placeholder="renk"/>
+                    </div>
+                    </div>
+                <div class="mb-3">
+                    <label for="ad">Adınız</label>
+                    <div class="form-group">
+                        <input type="text" 
+                        id="ad" 
+                        formControlName="ad" class="form-control" 
+                        placeholder="ad"/>
+                    </div>
+                    </div>
+                    <div class="mb-3">
+                    <label for="lastName">Soyadınız</label>
+                    <div class="form-group">
+                        <input type="text" 
+                        id="lastName" 
+                        formControlName="lastName" class="form-control" 
+                        placeholder="Soyad"/>
+                    </div> 
+                    </div>
+                    <div class="mb-3">
+                        <label for="rentDate">Başlangıç Tarihi</label>
+                        <div class="form-group">
+                            <input type="date" 
+                            id="rentDate" 
+                            formControlName="rentDate" class="form-control"/>
+                        </div> 
+                    </div>
+                        <div class="mb-3">
+                            <label for="returnDate">Bitiş Tarihi</label>
+                            <div class="form-group">
+                                <input type="date" 
+                                id="returnDate" 
+                                formControlName="returnDate" class="form-control"/>
+                            </div> 
+                        </div>
+                </form>
+                <div class="card-footer">
+                    <button class="btn btn-fill btn-success">Kirala</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

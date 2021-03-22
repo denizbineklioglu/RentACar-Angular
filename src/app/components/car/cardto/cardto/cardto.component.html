@@ -1,5 +1,5 @@
 <div class="car-header">
-  Araba Detayları
+  <h2>Araba Detayları</h2>
 </div>
     <div *ngIf="car" class="mt-4" >
       <img src="{{imageBasePath}}{{car.imagePath}}" class="card-img-top" width="400" height="400">
@@ -29,4 +29,4 @@
             <td>{{car.description}}</td>
           </tr>
       </div>
-      <button type="button" class="btn btn-success">Kirala</button>
+      <button routerLink="rentals/add" type="button" class="btn btn-success">Kirala</button>
