@@ -30,7 +30,7 @@ export class PaymentComponent implements OnInit {
   rental:Rental
 
  paymentAddForm:FormGroup;
-  @Input() carForRent:CarDetail
+
 
   constructor(private paymentService:PaymentService,
               private rentalService:RentalService,
@@ -39,16 +39,33 @@ export class PaymentComponent implements OnInit {
               private toastrService:ToastrService) { }
 
   ngOnInit(): void {
-    this.Payment();
+    this.createPaymentAddForm();
   }
-  Payment(){
-    let newPay: Payment={
-      nameSurname :this.nameSurname,
-      cardNo : this.cardNo,
-      expirationDate : this.expirationDate,
-      cvc:this.cvc
-    }
-    this.paymentService.addPayment(newPay);
-    this.rentalService.addRental(this.rental);
+  
+  createPaymentAddForm(){
+    this.paymentAddForm = this.formBuilder.group({
+      nameSurname:["",Validators.required],
+      cardNo:["",Validators.required],
+      expirationDate:["",Validators.required],
+      cvc:["",Validators.required],
+    })
+  }
+
+  add(){
+    if(this.paymentAddForm.valid){
+      let paymentModel = Object.assign({},this.paymentAddForm.value)
+      this.rentalService.addRental(paymentModel).subscribe (
+        response=>{  this.toastrService.success(response.message,"Ödeme İşlemi Başarıyla Gerçekleştirildi..")  },
+        responseError=> {
+          if(responseError.error.Errors.length>0){
+            for (let i = 0; i <responseError.error.Errors.length; i++) {
+              this.toastrService.error(responseError.error.Errors[i].ErrorMessage,"Doğrulama hatası")
+            }       
+          } 
+        }
+      )      
+    }else{
+      this.toastrService.error("Formunuz eksik","Dikkat")
+    } 
   }
 }

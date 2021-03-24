@@ -27,7 +27,7 @@ export class CartComponent implements OnInit {
 
   rentDate: Date;
   ReturnDate: Date;
-
+  isPaymentActive : boolean;
   rentalAddForm : FormGroup;
 
   constructor(private customerService: CustomerService,
@@ -43,6 +43,7 @@ export class CartComponent implements OnInit {
     this.ReturnDate = new Date();
 
     this.createRentalAddForm();
+    this.getCustomerDetails();
 
     this.activatedRoute.queryParams.subscribe((params) => {
       if (params['carID']) {
@@ -99,6 +100,12 @@ export class CartComponent implements OnInit {
     })
   }
 
-  
+  setCartActive(){
+    this.isPaymentActive = true;
+  }
+
+  calcTotalPrice(){
+    
+   }
   
 }

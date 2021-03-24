@@ -1,1 +1,48 @@
-
+<div class="content">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header"><h5 class="title">Ödeme Yap</h5></div>
+            <div class="card-body">
+            <form [formGroup]="paymentAddForm">
+                <div class="mb-3">
+                    <label for="nameSurname">Marka Adı</label>
+                    <div class="form-group">
+                        <input type="text" 
+                        id="NameSurname" 
+                        formControlName="nameSurname" class="form-control" 
+                        placeholder="ad girin"/>
+                    </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="cardNo">Kart No</label>
+                        <div class="form-group">
+                            <input type="text" 
+                            id="cardNo" 
+                            formControlName="cardNo" class="form-control" 
+                            placeholder="kart numarası"/>
+                        </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="expirationDate">Son Kullanma Tarihi</label>
+                            <div class="form-group">
+                                <input type="date" 
+                                id="expirationDate" 
+                                formControlName="expirationDate" class="form-control" value="{{ expirationDate | date:'yyyy-MM'}}"/>
+                            </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="cvc">CVC</label>
+                                <div class="form-group">
+                                    <input type="text" 
+                                    id="cvc" 
+                                    formControlName="cvc" class="form-control"/>
+                                </div>
+                                </div>
+                </form>
+                <div class="card-footer">
+                    <button class="btn btn-fill btn-success" (click)="add()">Ödeme Yap</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
