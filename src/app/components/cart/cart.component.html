@@ -1,0 +1,49 @@
+
+<h5>Araba Kirala</h5>
+<div class="card">
+    <div class="card-header"><h5 class="title">Araç kirala</h5></div>
+  
+    <div class="card-body">
+  
+      <form [formGroup]="rentalAddForm">
+    
+        <div class="mb-1">
+          <label for="customerID">Müşteri</label>
+          <div class="form-group">       
+            <input type="text" 
+            id="customerID" 
+            formControlName="customerID" class="form-control" 
+            placeholder="adınızı girin"/>       
+          </div>
+        </div>
+  
+        <div class="mb-1">
+          <label for="customer">Kiralama tarihi</label>
+          <div class="form-group">
+            <input type="date" id="rentDate" class="form-control" 
+            formControlName="rentDate" min="{{ rentDate }}" value="{{ rentDate | date:'yyyy-MM-dd'}}"/>
+          </div>
+        </div>
+  
+        <div class="mb-1">
+          <label for="customer">Teslim tarihi</label>
+          <div class="form-group">
+            <input type="date" id="returnDate" class="form-control" 
+            formControlName="ReturnDate" min="{{ ReturnDate }}" value="{{ ReturnDate | date:'yyyy-MM-dd'}}">
+          </div>
+        </div>
+  
+        <div class="mb-1">
+          <label for="customer">Toplam ücret</label>
+          <div class="form-group"> <h4> {{ totalPrice }} TL </h4> </div>
+        </div>
+  
+      </form>
+    </div>
+  
+    <div class="card-footer">
+      <button class="btn btn-fill btn-primary">Onayla</button>
+    </div>
+  
+  
+  </div>

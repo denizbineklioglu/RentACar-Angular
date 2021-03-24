@@ -4,6 +4,7 @@ import { BrandAddComponent } from './components/brand-add/brand-add.component';
 import { CarAddComponent } from './components/car-add/car-add.component';
 import { CarComponent } from './components/car/car.component';
 import { CardtoComponent } from './components/car/cardto/cardto/cardto.component';
+import { CartComponent } from './components/cart/cart.component';
 import { ColorAddComponent } from './components/color-add/color-add.component';
 import { RentalComponent } from './components/rental/rental.component';
 
@@ -17,7 +18,7 @@ const routes: Routes = [
   {path:"cars/add",component:CarAddComponent},
   {path:"brands/add",component:BrandAddComponent},
   {path:"colors/add",component:ColorAddComponent},
-  {path:"payments/add:payment",component:RentalComponent}
+  {path:"cart", component: CartComponent},
 ];
 
 @NgModule({

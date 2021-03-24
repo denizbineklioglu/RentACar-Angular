@@ -16,6 +16,7 @@ export class RentalComponent implements OnInit {
   constructor(private formsBuilder:FormBuilder,
               private rentalService:RentalService) { }
 
+  
   ngOnInit(): void {
     this.getrentaldetails()
   }
@@ -27,13 +28,10 @@ export class RentalComponent implements OnInit {
      this.rentals=response.data
   })
   }
+  
+   RentAdd(id:number){
 
-  createRentalAddForm(){
-    this.rentalAddForm = this.formsBuilder.group({
-      firstName:["",Validators.required],
-      lastName:["",Validators.required],
-      rentDate:["",Validators.required],
-      returndate:["",Validators.required]
-    })
-  }
-}
+   }
+   
+   }
+

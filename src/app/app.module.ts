@@ -20,7 +20,8 @@ import { PaymentComponent } from './components/payment/payment.component';
 import { CarAddComponent } from './components/car-add/car-add.component';
 import {ToastrModule} from "ngx-toastr";
 import { BrandAddComponent } from './components/brand-add/brand-add.component';
-import { ColorAddComponent } from './components/color-add/color-add.component'
+import { ColorAddComponent } from './components/color-add/color-add.component';
+import { CartComponent } from './components/cart/cart.component'
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { ColorAddComponent } from './components/color-add/color-add.component'
     CarAddComponent,
     BrandAddComponent,
     ColorAddComponent,
+    CartComponent,
   ],
   imports: [
     HttpClientModule,

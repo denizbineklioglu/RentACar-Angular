@@ -1,6 +1,5 @@
 export interface Payment{
-     paymentID:number
-     rentalID:number
+     paymentID?:number
      nameSurname:string
      cardNo:string
      expirationDate:string

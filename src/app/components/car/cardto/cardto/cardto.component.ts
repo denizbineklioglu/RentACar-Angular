@@ -16,6 +16,7 @@ export class CardtoComponent implements OnInit {
 
   car:Car
   imageBasePath=environment.baseUrl
+  isCartActive : boolean;
   
   constructor(private cardtoService:CardtoService,private activatedRoute:ActivatedRoute) { }
   ngOnInit(): void {
@@ -30,6 +31,10 @@ export class CardtoComponent implements OnInit {
     this.cardtoService.getcardetail(carId).subscribe(response => {
       this.car = response.data[0]
     })
+  }
+
+  setCartActive(){
+    this.isCartActive = true;
   }
 
 }

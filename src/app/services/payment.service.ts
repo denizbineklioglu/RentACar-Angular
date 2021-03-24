@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ListedResponseModel } from '../models/listedresponsemodel';
 import { Payment } from '../models/payment';
+import { ResponseModel } from '../models/responseModel';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,7 @@ export class PaymentService {
 
   addPayment(payment:Payment){
     let newPath = this.apiUrl + "payments/add";
-    this.httpClient.post(newPath,payment).subscribe();
+    return this.httpClient.post(newPath,payment).subscribe();
 
   }
 }
