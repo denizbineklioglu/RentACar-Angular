@@ -9,7 +9,7 @@ import { ColorComponent } from './components/color/color.component';
 import { CustomerComponent } from './components/customer/customer.component';
 import { RentalComponent } from './components/rental/rental.component';
 import { NavComponent } from './components/nav/nav.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CardtoComponent } from './components/car/cardto/cardto/cardto.component';
 import { FilterBrandPipe } from './pipes/filter-brand.pipe';
 import {FormsModule,ReactiveFormsModule} from '@angular/forms';
@@ -23,6 +23,7 @@ import { BrandAddComponent } from './components/brand-add/brand-add.component';
 import { ColorAddComponent } from './components/color-add/color-add.component';
 import { CartComponent } from './components/cart/cart.component';
 import { LoginComponent } from './components/login/login.component'
+import { AuthInterceptor } from './components/interceptors/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,9 @@ import { LoginComponent } from './components/login/login.component'
       positionClass:"toast-bottom-right"
     })
   ],
-  providers: [],
+  providers: [
+    {provide:HTTP_INTERCEPTORS,useClass:AuthInterceptor,multi:true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
