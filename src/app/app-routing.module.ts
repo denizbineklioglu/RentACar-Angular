@@ -21,6 +21,8 @@ const routes: Routes = [
   {path:"colors/add",component:ColorAddComponent},
   {path:"cart", component: CartComponent},
   {path:"payments/add",component:PaymentComponent},
+  {path:"payment",component:PaymentComponent},
+  {path:"rental",component:RentalComponent}
 ];
 
 @NgModule({
