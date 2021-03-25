@@ -21,7 +21,8 @@ import { CarAddComponent } from './components/car-add/car-add.component';
 import {ToastrModule} from "ngx-toastr";
 import { BrandAddComponent } from './components/brand-add/brand-add.component';
 import { ColorAddComponent } from './components/color-add/color-add.component';
-import { CartComponent } from './components/cart/cart.component'
+import { CartComponent } from './components/cart/cart.component';
+import { LoginComponent } from './components/login/login.component'
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { CartComponent } from './components/cart/cart.component'
     BrandAddComponent,
     ColorAddComponent,
     CartComponent,
+    LoginComponent,
   ],
   imports: [
     HttpClientModule,
