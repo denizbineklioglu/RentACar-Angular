@@ -33,5 +33,16 @@
             <th>Açıklama: </th>
             <td>{{car.description}}</td>
           </tr>
+          <tr>
+            <th>Arabayı Kiralayabilmek İçin Gerekli Findeks Puanı:  </th> <br>
+            <td>{{car.findeksPoint}}</td>
+          </tr>
       </div>
+      <div class="row">
+      <div class="col-md-5">
       <button (click)="setCartActive()"  type="button" class="btn btn-success">Kirala</button>
+      </div>
+      <div class="col-md-5">
+      <button type="button" class="btn btn-danger">Findeks Puanı Sorgulama</button>
+      </div>
+    </div>

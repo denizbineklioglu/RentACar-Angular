@@ -12,6 +12,7 @@
     <ul class="list-group">
       <li class="list-group-item">Adı: {{car.carName}}</li>
       <li class="list-group-item">Fiyat: {{car.dailyPrice | currency}}</li>
+      <li class="list-group-item">Gerekli Findeks Puanı: {{car.findeksPoint}}</li>
       <button routerLink="cars/getcardetailbyid/{{car.carID}}" type="button" class="btn btn-primary">Detaylar</button>
     </ul>
     </div>
