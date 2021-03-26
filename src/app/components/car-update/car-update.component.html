@@ -1,0 +1,77 @@
+<div class="content">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header"><h5 class="title">Araba Güncelle</h5></div>
+            <div class="card-body">
+            <form [formGroup]="carUpdateForm">
+                <div class="mb-3">
+                    <label for="carID">Araba No</label>
+                    <div class="form-group">
+                        <input type="number" 
+                        id="carID" 
+                        formControlName="carID" class="form-control" 
+                        placeholder="araba no"/>
+                    </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="brandName">Marka Adı</label>
+                        <div class="form-group">
+                            <input type="text" 
+                            id="brandName" 
+                            formControlName="brandName" class="form-control" 
+                            placeholder="marka Adı"/>
+                        </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="colorName">Renk Adı</label>
+                            <div class="form-group">
+                                <input type="text" 
+                                id="colorName" 
+                                formControlName="colorName" class="form-control" 
+                                placeholder="renk Adı"/>
+                            </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="carName">Araba Adı</label>
+                                <div class="form-group">
+                                    <input type="text" 
+                                    id="carName" 
+                                    formControlName="carName" class="form-control" 
+                                    placeholder="araba Adı"/>
+                                </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="modelYear">Model Yılı</label>
+                                    <div class="form-group">
+                                        <input type="number" 
+                                        id="modelYear" 
+                                        formControlName="modelYear" class="form-control" 
+                                        placeholder="model yılı"/>
+                                    </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="dailyPrice">Günlük Ücret</label>
+                                        <div class="form-group">
+                                            <input type="number" 
+                                            id="dailyPrice" 
+                                            formControlName="dailyPrice" class="form-control" 
+                                            placeholder="günlük ücret"/>
+                                        </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="description">açıklama</label>
+                                            <div class="form-group">
+                                                <input type="text" 
+                                                id="description" 
+                                                formControlName="description" class="form-control" 
+                                                placeholder="açıklama"/>
+                                            </div>
+                                            </div>
+                </form>
+                <div class="card-footer">
+                    <button class="btn btn-fill btn-success" (click)="update()">Güncelle</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -28,10 +28,10 @@
             <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
           </li>
         </ul>
-        <form class="d-flex">
-          <input class="form-control me-2" type="search" placeholder="Ara" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Ara</button>
-        </form>
+        <div *ngIf="!isAuthotanced()">
+         <button class="btn btn-primary" routerLink="/register">Üye Ol</button>
+         <button class="btn btn-primary" routerLink="/login">Giriş Yap</button>
+         </div>
       </div>
     </div>
   </nav>

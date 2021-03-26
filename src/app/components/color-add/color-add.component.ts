@@ -12,7 +12,7 @@ export class ColorAddComponent implements OnInit {
 
   colorAddForm:FormGroup
   constructor(private formBuilder:FormBuilder,
-    private brandService:ColorService,
+    private colorService:ColorService,
     private toastrService:ToastrService) { }
 
   ngOnInit(): void {
@@ -20,14 +20,14 @@ export class ColorAddComponent implements OnInit {
   }
   createColorAdd(){
     this.colorAddForm = this.formBuilder.group({
-     brandName:["",Validators.required]
+     colorName:["",Validators.required]
     })
  }
 
  add(){
   if(this.colorAddForm.valid) {
     let carModel = Object.assign({},this.colorAddForm.value)
-    this.brandService.add(carModel).subscribe(response => {
+    this.colorService.add(carModel).subscribe(response => {
       this.toastrService.success(response.message,"Başarılı")
     },responseError=> {
       if(responseError.errors.Errors.length>0){
