@@ -5,6 +5,8 @@ import { LoginModel } from '../models/loginModel';
 import { RegisterModel } from '../models/registerModel';
 import { SingleResponseModel } from '../models/singleResponseModel';
 import { TokenModel } from '../models/tokenModels';
+import { LocalStorageService } from './local-storage.service';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 @Injectable({
   providedIn: 'root'
@@ -12,11 +14,20 @@ import { TokenModel } from '../models/tokenModels';
 export class AuthService {
 
   apiUrl="https://localhost:44350/api/auth/"
+  userId:number
 
-  constructor(private  httpClient:HttpClient) { }
+  jwtHelper:JwtHelperService = new JwtHelperService();
+
+  constructor(private  httpClient:HttpClient,
+              private localStorageService:LocalStorageService) 
+              { 
+                this.setUserId();
+              }
 
   login(loginModel:LoginModel){
+
      return this.httpClient.post<SingleResponseModel<TokenModel>>(this.apiUrl+"login",loginModel)
+     
   }
 
   register(registerModel:RegisterModel){
@@ -24,10 +35,28 @@ export class AuthService {
   }
 
   isAuthenticated(){
-    if(localStorage.getItem("token")){
+    if(this.localStorageService.get("token")){
       return true;
     } else {
       return false
     }
+  }
+
+  setUserId(){
+     if(this.localStorageService.get("token")){
+       var decoded = this.jwtHelper.decodeToken(this.localStorageService.get("token"))
+        var propUserId = Object.keys(decoded).filter(u=> u.endsWith("/nameidentifier"))[0]
+        this.userId = Number(decoded[propUserId])
+     }
+  }
+
+  getUserId():number{
+    return this.userId;
+  }
+
+  getUserName(){
+    var decoded = this.jwtHelper.decodeToken(this.localStorageService.get("token"))
+    var propUserName = Object.keys(decoded).filter(u=> u.endsWith("/name"))[0]
+    return (decoded[propUserName]);
   }
 }

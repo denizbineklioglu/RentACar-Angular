@@ -16,7 +16,12 @@ export class LocalStorageService {
   }
 
   get(value:string){
-    return localStorage.getItem(value);
+    var result = localStorage.getItem(value);
+    if(result){
+      return result;
+    } else {
+      return undefined
+    }
   }
 
   clear(){
