@@ -74,7 +74,6 @@ export class CartComponent implements OnInit {
     }
     this.toastrService.success("Ödeme sayfasına yönlendiriliyorsunuz","Başarılı");
     this.router.navigate(["/payment"])
-    console.log(rentalModel)
     
   }
 

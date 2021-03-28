@@ -1,6 +1,6 @@
 export interface Rentaldto {
     rentalId:number
-    branName:string
+    brandName:string
     colorName:string
     firstName:string
     lastName:string

@@ -1,11 +1,6 @@
 <div class="car-header">
   <h2>Araba Detayları</h2>
 </div>
-
-<div *ngIf="isCartActive">
-  <app-cart></app-cart>  
-</div>
-
     <div *ngIf="car" class="mt-4" >
       <img src="{{imageBasePath}}{{car.imagePath}}" class="card-img-top" width="50" height="400">
           <table class="table table-bordered"></table>
@@ -40,7 +35,7 @@
       </div>
       <div class="row">
       <div class="col-md-5">
-      <button (click)="setCartActive()"  type="button" class="btn btn-success">Kirala</button>
+      <button routerLink="/cart"  type="button" class="btn btn-success">Kirala</button>
       </div>
       <div class="col-md-5">
       <button type="button" class="btn btn-danger">Findeks Puanı Sorgulama</button>
