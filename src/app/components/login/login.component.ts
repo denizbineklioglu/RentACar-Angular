@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
         this.toastrService.info(response.message)
         setTimeout(()=> {
           this.authService.setUserId()
-          this.router.navigate(["/cars"]);
+          this.router.navigate(["/"]);
         },400)
         
       },responseError => {

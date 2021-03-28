@@ -52,20 +52,6 @@ export class PaymentComponent implements OnInit {
   }
 
   add(){
-    if(this.paymentAddForm.valid){
-      let paymentModel = Object.assign({},this.paymentAddForm.value)
-      this.rentalService.addRental(paymentModel).subscribe (
-        response=>{  this.toastrService.success(response.message,"Ödeme İşlemi Başarıyla Gerçekleştirildi..")  },
-        responseError=> {
-          if(responseError.error.Errors.length>0){
-            for (let i = 0; i <responseError.error.Errors.length; i++) {
-              this.toastrService.error(responseError.error.Errors[i].ErrorMessage,"Doğrulama hatası")
-            }       
-          } 
-        }
-      )      
-    }else{
-      this.toastrService.error("Formunuz eksik","Dikkat")
-    } 
+    
   }
 }

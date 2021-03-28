@@ -25,9 +25,10 @@ export class CartComponent implements OnInit {
   
   cars:Car[]=[]
   totalPrice: number;
-
+  customerID:number
+  carID:number
   rentDate: Date;
-  ReturnDate: Date;
+  returnDate: Date;
   isPaymentActive : boolean;
   rentalAddForm : FormGroup;
 
@@ -42,7 +43,7 @@ export class CartComponent implements OnInit {
 
   ngOnInit(): void {
     this.rentDate = new Date();
-    this.ReturnDate = new Date();
+    this.returnDate = new Date();
 
     this.getCars();
     this.createRentalAddForm();
@@ -60,27 +61,21 @@ export class CartComponent implements OnInit {
       carID: ["",Validators.required],
       customerID : ["",Validators.required],
       rentDate : ["",Validators.required],
-      ReturnDate:["",Validators.required]     
+      returnDate:["",Validators.required]     
     })
   }
 
   add(){
-    if(this.rentalAddForm.valid){
-      let rentalModel = Object.assign({},this.rentalAddForm.value)
-      this.rentalService.addRental(rentalModel).subscribe (
-        response=>{  this.toastrService.success(response.message,"Başarılı")
-                     this.router.navigate(["payment"])  },
-        responseError=> {
-          if(responseError.error.Errors.length>0){
-            for (let i = 0; i <responseError.error.Errors.length; i++) {
-              this.toastrService.error(responseError.error.Errors[i].ErrorMessage,"Doğrulama hatası")
-            }       
-          } 
-        }
-      )      
-    }else{
-      this.toastrService.error("Formunuz eksik","Dikkat")
-    }    
+    let rentalModel = {
+      carID:this.carID,
+      customerID:this.customerID,
+      rentDate: this.rentDate,
+      returnDate:this.returnDate
+    }
+    this.toastrService.success("Ödeme sayfasına yönlendiriliyorsunuz","Başarılı");
+    this.router.navigate(["/payment"])
+    console.log(rentalModel)
+    
   }
 
   getCustomerDetails() {

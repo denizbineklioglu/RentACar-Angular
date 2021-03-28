@@ -3,5 +3,5 @@ export interface Rental{
     carID?:number
     customerID:number
     rentDate:Date
-    ReturnDate?:Date
+    returnDate?:Date
 }

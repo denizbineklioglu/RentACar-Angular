@@ -2,21 +2,18 @@
 <h5>Araba Kirala</h5>
 <div class="card">
     <div class="card-header"><h5 class="title">Araç kirala</h5></div>
-  
     <div class="card-body">
-  
       <form [formGroup]="rentalAddForm">
         <div class="mb-1">
           <label for="carID">Araba</label>
           <div class="form-group">       
             <select class="form-select" formControlName="carID">
                 <option [value]="car.carID"  *ngFor="let car of cars">
-                   {{car.carID}} {{ car.carName }} 
+                   {{ car.carName }} 
                 </option>
               </select>
           </div>
         </div>
-        
         <div class="mb-1">
           <label for="customerID">Müşteri</label>
           <div class="form-group">       
@@ -40,7 +37,7 @@
           <label for="customer">Teslim tarihi</label>
           <div class="form-group">
             <input type="date" id="returnDate"  (change)="calcTotalPrice()"  class="form-control" 
-            formControlName="ReturnDate" min="{{ ReturnDate }}" value="{{ ReturnDate | date:'yyyy-MM-dd'}}">
+            formControlName="returnDate" min="{{ returnDate }}" value="{{ returnDate | date:'yyyy-MM-dd'}}">
           </div>
         </div>
   
