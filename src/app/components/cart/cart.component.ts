@@ -20,7 +20,7 @@ export class CartComponent implements OnInit {
 
   customers: CustomerDetail[] = []; 
   customerss:Customer[]
-  currentCustomer: number;
+  currentCustomer: Customer;
   currentCar: Car;
   
   cars:Car[]=[]
@@ -58,7 +58,7 @@ export class CartComponent implements OnInit {
   
   createRentalAddForm(){
     this.rentalAddForm = this.formBuilder.group({
-      carID: ["",Validators.required],
+      carID: [""],
       customerID : ["",Validators.required],
       rentDate : ["",Validators.required],
       returnDate:["",Validators.required]     
@@ -66,14 +66,19 @@ export class CartComponent implements OnInit {
   }
 
   add(){
-    let rentalModel = {
-      carID:this.carID,
-      customerID:this.customerID,
-      rentDate: this.rentDate,
-      returnDate:this.returnDate
+    if(this.rentalAddForm.valid){
+      let rentalModel = Object.assign({},this.rentalAddForm.value)
+      rentalModel.rentdate = this.rentDate
+      rentalModel.returnDate=this.returnDate
+      this.rentalService.addRental(rentalModel);
+      this.toastrService.success("Ödeme sayfasına yönlendiriliyorsunuz","Başarılı");
+      this.router.navigate(["/payment"])
+    } else {
+      this.toastrService.error("Formunuz Eksik","Hata")
     }
-    this.toastrService.success("Ödeme sayfasına yönlendiriliyorsunuz","Başarılı");
-    this.router.navigate(["/payment"])
+
+    
+    
     
   }
 

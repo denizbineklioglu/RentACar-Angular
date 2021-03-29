@@ -33,11 +33,6 @@
             <td>{{car.findeksPoint}}</td>
           </tr>
       </div>
-      <div class="row">
       <div class="col-md-5">
-      <button routerLink="/cart"  type="button" class="btn btn-success">Kirala</button>
+      <button routerLink="/cart" [queryParams]="{carID: car?.carID}" type="button"  class="btn btn-success">Kirala</button>
       </div>
-      <div class="col-md-5">
-      <button type="button" class="btn btn-danger">Findeks Puanı Sorgulama</button>
-      </div>
-    </div>
