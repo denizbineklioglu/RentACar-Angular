@@ -30,6 +30,7 @@ import { CarUpdateComponent } from './components/car-update/car-update.component
 import { BrandUpdateComponent } from './components/brand-update/brand-update.component';
 import { ColorUpdateComponent } from './components/color-update/color-update.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { PasswordComponent } from './components/password/password.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +58,7 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
     BrandUpdateComponent,
     ColorUpdateComponent,
     UserProfileComponent,
+    PasswordComponent,
   ],
   imports: [
     HttpClientModule,

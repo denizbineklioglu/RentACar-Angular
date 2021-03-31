@@ -43,7 +43,7 @@ export class UserProfileComponent implements OnInit {
         this.toastrService.error(responseError.error,"Hatalı giriş")
       })
     } else {
-      this.toastrService.error("Formunuz Eksik","Hata");
+      
     }
   }
 
