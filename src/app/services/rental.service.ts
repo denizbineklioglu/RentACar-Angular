@@ -19,8 +19,8 @@ export class RentalService {
      .get<ListedResponseModel<Rental>>(newPath)
   }
 
-  addRental(rental:Rental){
-    let newPath = this.apiUrl + "rentals/add";
-    this.httpClient.post(newPath,rental).subscribe();
+  addRental(rental:Rental, carID:number):Observable<ResponseModel>{
+    rental.carID = carID;
+    return this.httpClient.post<ResponseModel>(this.apiUrl + "rentals/add",rental)
   }
 }

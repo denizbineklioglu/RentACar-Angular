@@ -29,6 +29,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { CarUpdateComponent } from './components/car-update/car-update.component';
 import { BrandUpdateComponent } from './components/brand-update/brand-update.component';
 import { ColorUpdateComponent } from './components/color-update/color-update.component';
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import { ColorUpdateComponent } from './components/color-update/color-update.com
     CarUpdateComponent,
     BrandUpdateComponent,
     ColorUpdateComponent,
+    UserProfileComponent,
   ],
   imports: [
     HttpClientModule,

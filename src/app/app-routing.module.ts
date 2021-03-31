@@ -13,6 +13,7 @@ import { LoginComponent } from './components/login/login.component';
 import { PaymentComponent } from './components/payment/payment.component';
 import { RegisterComponent } from './components/register/register.component';
 import { RentalComponent } from './components/rental/rental.component';
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { LoginGuard } from './guards/login.guard';
 
 const routes: Routes = [
@@ -35,7 +36,8 @@ const routes: Routes = [
   {path:"payment",component:PaymentComponent},
   {path:"rental",component:RentalComponent},
   {path:"login",component:LoginComponent},
-  {path:"register",component:RegisterComponent}
+  {path:"register",component:RegisterComponent},
+  {path:"profile",component:UserProfileComponent}
 ];
 
 @NgModule({

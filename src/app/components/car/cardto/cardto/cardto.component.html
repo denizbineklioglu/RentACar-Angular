@@ -1,38 +1,34 @@
 <div class="car-header">
   <h2>Araba Detayları</h2>
 </div>
-    <div *ngIf="car" class="mt-4" >
-      <img src="{{imageBasePath}}{{car.imagePath}}" class="card-img-top" width="50" height="400">
+    <div *ngIf="carDetail" class="mt-4" >
+      <img src="{{imageBasePath}}{{carDetail.imagePath}}" class="card-img-top" width="50" height="400">
           <table class="table table-bordered"></table>
           <tr>
             <th>Adı: </th>
-            <td>{{car.carName}}</td>
+            <td>{{carDetail.carName}}</td>
           </tr>
           <tr>
             <th>Marka: </th>
-            <td>{{car.brandName}}</td>
+            <td>{{carDetail.brandName}}</td>
           </tr>
           <tr>
             <th>Renk: </th>
-            <td>{{car.colorName}}</td>
+            <td>{{carDetail.colorName}}</td>
           </tr>
           <tr>
             <th>Fiyatı: </th>
-            <td>{{car.dailyPrice | currency}}</td>
+            <td>{{carDetail.dailyPrice | currency}}</td>
           </tr>
           <tr>
             <th>Model Yılı: </th>
-            <td>{{car.modelYear}}</td>
-          </tr>
-          <tr>
-            <th>Açıklama: </th>
-            <td>{{car.description}}</td>
+            <td>{{carDetail.modelYear}}</td>
           </tr>
           <tr>
             <th>Arabayı Kiralayabilmek İçin Gerekli Findeks Puanı:  </th> <br>
-            <td>{{car.findeksPoint}}</td>
+            <td>{{carDetail.findeksPoint}}</td>
           </tr>
       </div>
       <div class="col-md-5">
-      <button routerLink="/cart" [queryParams]="{carID: car?.carID}" type="button"  class="btn btn-success">Kirala</button>
+      <button routerLink="/cart/{{car.carID}}" type="button"  class="btn btn-success">Kirala</button>
       </div>

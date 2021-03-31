@@ -3,17 +3,6 @@
     <div class="card-body">
       <form [formGroup]="rentalAddForm">
         <div class="mb-1">
-          <label for="carID">Araba</label>
-          <div class="form-group">       
-            <select class="form-select" formControlName="carID"  >
-                <option value="car.carID"  *ngFor="let car of cars">
-                  {{car.carName}}
-                </option>
-              </select>
-          </div>
-        </div>
-
-        <div class="mb-1">
           <label for="customerID">Müşteri</label>
           <div class="form-group">       
             <select class="form-select" formControlName="customerID">

@@ -21,7 +21,7 @@ export class CartComponent implements OnInit {
   customers: CustomerDetail[] = []; 
   customerss:Customer[]
   currentCustomer: Customer;
-  currentCar: Car;
+  currentCar: CarDetail;
   
   cars:Car[]=[]
   totalPrice: number;
@@ -43,22 +43,20 @@ export class CartComponent implements OnInit {
 
   ngOnInit(): void {
     this.rentDate = new Date();
-    this.returnDate = new Date();
-
-    this.getCars();
-    this.createRentalAddForm();
-    this.getCustomerDetails();
+    this.returnDate = new Date();  
 
     this.activatedRoute.queryParams.subscribe((params) => {
       if (params['carID']) {
         this.getCarDetailsById(params['carID']);
       }
     });
+
+    this.createRentalAddForm();
+    this.getCustomerDetails()
   }
   
   createRentalAddForm(){
     this.rentalAddForm = this.formBuilder.group({
-      carID: [""],
       customerID : ["",Validators.required],
       rentDate : ["",Validators.required],
       returnDate:["",Validators.required]     
@@ -67,19 +65,20 @@ export class CartComponent implements OnInit {
 
   add(){
     if(this.rentalAddForm.valid){
+      this.activatedRoute.params.subscribe(params => {
+        if(params ["carID"]){
+          this.carID = parseInt(params["carID"]);
+        }
+      })
       let rentalModel = Object.assign({},this.rentalAddForm.value)
-      rentalModel.rentdate = this.rentDate
-      rentalModel.returnDate=this.returnDate
-      this.rentalService.addRental(rentalModel);
-      this.toastrService.success("Ödeme sayfasına yönlendiriliyorsunuz","Başarılı");
-      this.router.navigate(["/payment"])
+      this.rentalService.addRental(rentalModel,this.carID).subscribe(response => {
+          this.toastrService.success(response.message);
+      }, responseError => {
+        this.toastrService.error(responseError.error.message)
+      })
     } else {
-      this.toastrService.error("Formunuz Eksik","Hata")
-    }
-
-    
-    
-    
+      this.toastrService.success("Formunuz eksik")
+    }    
   }
 
   getCustomerDetails() {

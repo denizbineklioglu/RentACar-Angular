@@ -14,8 +14,8 @@ export class CardtoService {
 
   apiUrl="https://localhost:44350/api/"
 
-  getcardetail(carId:number):Observable<ListedResponseModel<Car>>{
+  getcardetail(carId:number):Observable<ListedResponseModel<CarDetail>>{
     let newPath = this.apiUrl + "cars/getcardetailbyid?id=" + carId
-    return this.httpClient.get<ListedResponseModel<Car>>(newPath)
+    return this.httpClient.get<ListedResponseModel<CarDetail>>(newPath)
  } 
 }

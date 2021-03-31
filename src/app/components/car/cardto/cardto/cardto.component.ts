@@ -14,11 +14,13 @@ import { environment } from 'src/environments/environment';
 })
 export class CardtoComponent implements OnInit {
 
+  carDetail:CarDetail
   car:Car
   imageBasePath=environment.baseUrl
   isCartActive : boolean;
   
   constructor(private cardtoService:CardtoService,private activatedRoute:ActivatedRoute) { }
+  
   ngOnInit(): void {
    this.activatedRoute.params.subscribe(params => {
      if(params ["carID"]){
@@ -27,9 +29,9 @@ export class CardtoComponent implements OnInit {
    })
   }
   
-  getcardetail(carId:number){
-    this.cardtoService.getcardetail(carId).subscribe(response => {
-      this.car = response.data[0]
+  getcardetail(carID:number){
+    this.cardtoService.getcardetail(carID).subscribe(response => {
+      this.carDetail = response.data[0]
     })
   }
 
